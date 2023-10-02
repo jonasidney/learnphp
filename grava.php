@@ -1,4 +1,5 @@
 <?php
+require_once 'config.php';
 
   if (isset ($_POST['nome']) && !empty(trim($_POST['nome']))) {
 
@@ -10,7 +11,35 @@
       $sexo = $_POST['sexo'];
       $categoria = implode(" , ", $_POST['categoria']);
       $login = $_POST['login'];
+      $senha = $_POST['senha'];
+  }
+      $PDO = connect();
       
+      $sql = "INSERT INTO
+      usuario(NM_User, EM_User, DN_User, ST_User, AD_User, SX_User, CT_User, LG_User, PS_User)
+      VALUES (:nome, :email, :nascimento, :estado, :endereco, :sexo, :categoria, :login, :senha)"; 
+      
+      $stmt = $PDO->prepare($sql);
+      $stmt->bindParam(':nome', 'nome');
+      $stmt->bindParam(':emai', 'email');
+      $stmt->bindParam(':nascimento', 'nascimento');
+      $stmt->bindParam(':estado', 'estado');
+      $stmt->bindParam(':endereco', 'endereco');
+      $stmt->bindParam(':sexo', 'sexo');
+      $stmt->bindParam(':categoria', 'categoria');
+      $stmt->bindParam(':login', 'login');
+      $stmt->bindParam(':senha', 'senha');
+
+      if ($stmt->execute()) {
+        header('Location: cadastroUsuario.php');
+      }
+      else {
+        echo "Não foi possível gravar o registro!";
+        print_r ($stmt->errorInfo());
+      }
+
+
+      /*
       //-- Calcular a idade em anos;
       $dataInformada = new DateTime($nascimento);
       $hoje = new DateTime( );
@@ -46,5 +75,6 @@
   } else {
     echo "Não há dados a exibir.";
   }
-
+*/
+  
 ?>
