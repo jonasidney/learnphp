@@ -7,6 +7,8 @@
   <title>Cadastro de Usuario</title>
 </head>
 <body>
-  <h2><a href="cadastroUsuario.php">Novo usuário</a></h2>
+<h2><a href="cadastroUsuario.php">Novo usuário</a></h2>
+<h1>Usuários Cadastrados</h1>
+
 </body>
 </html>

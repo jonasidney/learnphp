@@ -1,8 +1,17 @@
 <?php
 
-  function connect(){
-    $PDO = new PDO ('mysql:host=' . HOST . ';DATABASE=' . BASE . ';charset=utf8', USER, PASSWORD);
-    return $PDO;
-  }
+  $host =  "localhost";
+  $username = "root";
+  $password =  "";
+  $database = "cadastros";
 
+  $connect = new MySQLi($host, $username, $password, $database);
+
+  /*
+  if ($connection === false) {
+    echo "Erro ao tentar conectar ao MySQL: " . mysqli_connect_error();
+  } else {
+    echo "Conexão estabelecida com sucesso!";
+  }
+  */
 ?>
