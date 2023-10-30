@@ -5,13 +5,6 @@
   $password =  "";
   $database = "cadastros";
 
-  $connect = new MySQLi($host, $username, $password, $database);
+  $connect = new PDO("mysql:host=$host;dbname=$database", $username, $password);
 
-  /*
-  if ($connection === false) {
-    echo "Erro ao tentar conectar ao MySQL: " . mysqli_connect_error();
-  } else {
-    echo "Conexão estabelecida com sucesso!";
-  }
-  */
 ?>

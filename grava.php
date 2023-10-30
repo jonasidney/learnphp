@@ -17,7 +17,7 @@ include("connection.php");
       $sql = "INSERT INTO usuario(NM_User, EM_User, DN_User, ST_User, AD_User, SX_User, CT_User, LG_User, PS_User)
       VALUES ('{$nome}', '{$email}', '{$nascimento}', '{$estado}', '{$endereco}', '{$sexo}', '{$categoria}', '{$login}', '{$senha}')"; 
       
-      $res = $connect->query($sql);
+      $registro = $connect->query($sql);
 
       header('Location: index.php');
       
