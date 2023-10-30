@@ -18,18 +18,37 @@
 
       //$qtd = $registro->num_rows;
 
-      while($row = $registro->fetchObject()){ 
-        print $row->ID_User;
-        print $row->NM_User;
-        print $row->EM_User;
-        print $row->DN_User;
-        print $row->ST_User;
-        print $row->AD_User;
-        print $row->SX_User;
-        print $row->CT_User;
-        print $row->LG_User;
-      }
-
+      print "<table class='table table-hover table-striped table-bordered'>";
+        print"<tr>";
+        print"<th>ID</th>";
+        print"<th>Nome</th>";
+        print"<th>E-mail</th>";
+        print"<th>Nascimento</th>";
+        print"<th>Estado</th>";
+        print"<th>Endereco</th>";
+        print"<th>Sexo</th>";
+        print"<th>Categoria</th>";
+        print"<th>Login</th>";
+        print"<th>Acoes</th>";
+        print"</th>";
+            while($row = $registro->fetchObject()){
+              print"<tr>"; 
+              print "<td>".$row->ID_User."</td>";
+              print "<td>".$row->NM_User."</td>";
+              print "<td>".$row->EM_User."</td>";
+              print "<td>".$row->DN_User."</td>";
+              print "<td>".$row->ST_User."</td>";
+              print "<td>".$row->AD_User."</td>";
+              print "<td>".$row->SX_User."</td>";
+              print "<td>".$row->CT_User."</td>";
+              print "<td>".$row->LG_User."</td>";
+              print "<td>
+                            <button onclick=\"location.href=' ?edita.php&ID_User=".$row->ID_User."';\" class='btn btn-success'>Editar</button>
+                            <button class='btn btn-danger'>Excluir</button>
+                        </td>";
+              print"</tr>";
+            }
+      print"</table>";
 
   ?>
 </body>
