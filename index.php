@@ -23,7 +23,7 @@
         print"<th>ID</th>";
         print"<th>Nome</th>";
         print"<th>E-mail</th>";
-        print"<th>Nascimento</th>";
+        print"<th>Dt. Nasc.</th>";
         print"<th>Estado</th>";
         print"<th>Endereco</th>";
         print"<th>Sexo</th>";
@@ -31,6 +31,7 @@
         print"<th>Login</th>";
         print"<th>Acoes</th>";
         print"</th>";
+
             while($row = $registro->fetchObject()){
               print"<tr>"; 
               print "<td>".$row->ID_User."</td>";
@@ -43,12 +44,12 @@
               print "<td>".$row->CT_User."</td>";
               print "<td>".$row->LG_User."</td>";
               print "<td>
-                            <button onclick=\"location.href=' ?edita.php&ID_User=".$row->ID_User."';\" class='btn btn-success'>Editar</button>
+                            <button onclick=\"location.href='edita.php&ID_User=".$row->ID_User."';\" class='btn btn-success'>Editar</button>
                             <button class='btn btn-danger'>Excluir</button>
                         </td>";
               print"</tr>";
             }
-      print"</table>";
+        print"</table>";
 
   ?>
 </body>

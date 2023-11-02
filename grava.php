@@ -19,6 +19,13 @@ include("connection.php");
       
       $registro = $connect->query($sql);
 
-      header('Location: index.php');
+      if ($registro==true){
+        print "<script>
+                alert('Cadastro realizado comsucesso');
+        </script>";
+        print "<script>
+                location.href='index.php';
+        </script>";
+      }
       
 ?>

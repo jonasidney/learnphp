@@ -2,11 +2,13 @@
       <?php
          include("connection.php");
 
-         $sql = "SELECT * FROM usuario WHERE  ID_User=".$_REQUEST["ID_User"];
+        $cadastro = $_GET['ID_User'];
+
+        $sql = "SELECT * FROM usuario WHERE  ID_User=$cadastro";
          $registro = $connect->query($sql);
          $row = $registro->fetchObject();
       ?>
-        <form action="grava.php" method="post">
+        <form action="edita.php" method="POST">
           <div class="row">
 
               <div class="col-sm-12">
@@ -21,6 +23,7 @@
                 <label><b>Data de nascimento:</b> </label><br>
                 <input type="date" name="nascimento" value="<?php print $row->DN_User; ?> id="" class="form-control" required>
               </div>
+              <!--
               <div class="col-sm-12">
                 <label><b>Estado:</b> </label><br>
                 <select class="form-select" name="estado" value="<?php print $row->ST_User; ?> id="" class="form-control" required>
@@ -31,6 +34,7 @@
                   <option value="Brahia - BA">Bahia</option>
                 </select>
               </div>
+                
               <div class="col-sm-12">
                 <label><b>Endereço:</b> </label><br>
                 <input type="text" name="endereco" value="<?php print $row->AD_User; ?> id="" class="form-control" required>
@@ -49,6 +53,7 @@
                 <input type="checkbox" name="categoria[ ]" id="" value="serra"> Serra
                 <input type="checkbox" name="categoria[ ]" id="" value="cidade"> Cidade
               </div>
+              -->
               <div class="col-sm-12">
                 <label><b>Login:</b> </label><br>
                 <input type="text" name="login" value="<?php print $row->LG_User; ?> placeholder="nome de usuario" id="" class="form-control" required>
