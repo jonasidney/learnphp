@@ -1,56 +1,66 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <title>Cadastro de Usuario</title>
 </head>
+
 <body>
-<h2><a href="cadastroUsuario.php">Novo usuário</a></h2>
-<h1>Usuários Cadastrados</h1>
-  <?php
-      include("connection.php");
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Cadastro</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.php">Pagina Inicial</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="?page=cadastrarUsuario">Cadastrar Usuarios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="?page=listarUsuario">Listar Usuarios</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-      $sql = "SELECT * FROM  usuario";
+      <div class="container">
+        <div class="row">
+            <div class="col mt-5">
+                <?php
+                        include("conecta.php");
+                        switch(@$_REQUEST["page"]) {
+                          case "cadastrarUsuario":
+                            include("cadastrarUsuario.php");
+                          break;
 
-      $registro = $connect->query($sql);
+                          case "listarUsuario":
+                            include("listarUsuario.php");
+                          break;
 
-      //$qtd = $registro->num_rows;
+                          case "editarUsuario":
+                            include("editarUsuario.php");
+                          break;
 
-      print "<table class='table table-hover table-striped table-bordered'>";
-        print"<tr>";
-        print"<th>ID</th>";
-        print"<th>Nome</th>";
-        print"<th>E-mail</th>";
-        print"<th>Dt. Nasc.</th>";
-        print"<th>Estado</th>";
-        print"<th>Endereco</th>";
-        print"<th>Sexo</th>";
-        print"<th>Categoria</th>";
-        print"<th>Login</th>";
-        print"<th>Acoes</th>";
-        print"</th>";
+                          case "grava":
+                            include("grava.php");
+                          break;
 
-            while($row = $registro->fetchObject()){
-              print"<tr>"; 
-              print "<td>".$row->ID_User."</td>";
-              print "<td>".$row->NM_User."</td>";
-              print "<td>".$row->EM_User."</td>";
-              print "<td>".$row->DN_User."</td>";
-              print "<td>".$row->ST_User."</td>";
-              print "<td>".$row->AD_User."</td>";
-              print "<td>".$row->SX_User."</td>";
-              print "<td>".$row->CT_User."</td>";
-              print "<td>".$row->LG_User."</td>";
-              print "<td>
-                            <button onclick=\"location.href='edita.php&ID_User=".$row->ID_User."';\" class='btn btn-success'>Editar</button>
-                            <button class='btn btn-danger'>Excluir</button>
-                        </td>";
-              print"</tr>";
-            }
-        print"</table>";
+                          default:
+                          print "<h1>Boas vindas</h1>";
+                        }
+                  ?>
+            </div>
+        </div>
+      </div>
 
-  ?>
+      <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
