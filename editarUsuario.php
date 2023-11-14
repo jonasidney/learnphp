@@ -27,11 +27,11 @@
                 <div class="col-sm-12">
                   <label><b>Estado:</b> </label><br>
                   <select class="form-select" name="estado" value="<?php print $row->ST_User; ?>" class="form-control" required>
-                    <option value="Acre - AC">Acre</option>
-                    <option value="Alagoas - AL">Alagoas</option>
-                    <option value="Amapá - AP">Amapá</option>
-                    <option value="Amazonas - AM">Amazonas</option>
-                    <option value="Brahia - BA">Bahia</option>
+                    <option value="Acre - AC" <?php if ($row->ST_User == 'Acre - AC') {print 'selected'; } ?>>Acre</option>
+                    <option value="Alagoas - AL" <?php if ($row->ST_User == 'Alagoas - AL') {print 'selected'; } ?>>Alagoas</option>
+                    <option value="Amapá - AP" <?php if ($row->ST_User == 'Amapá - AP') {print 'selected'; } ?>>Amapá</option>
+                    <option value="Amazonas - AM" <?php if ($row->ST_User == 'Amazonas - AM') {print 'selected'; } ?>>Amazonas</option>
+                    <option value="Bahia - BA" <?php if ($row->ST_User == 'Bahia - BA') {print 'selected'; } ?>>Bahia</option>
                   </select>
                 </div>
                 <div class="col-sm-12">
